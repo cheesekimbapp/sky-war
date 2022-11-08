@@ -36,7 +36,7 @@ public class MyWorld extends World
         }
         
         Hero hero = new Hero(1);
-        addObject(hero, 30, 240);
+        addObject(hero, 65, 240);
         addObject(nyawa, 240,20);
         nyawa.setValue(5);
         addObject(skor, 60, 20);
@@ -50,4 +50,20 @@ public class MyWorld extends World
     public void started(){
         suara.playLoop();
     }
+    private int imageCount = 0;
+ 
+    private GreenfootImage bgImage = new GreenfootImage("bg15.png");
+ 
+    public void act() {
+    imageCount -= 2; //(or any other value; small -> slow moving, big -> fast movement)
+    drawBackgroundImage();
+}
+    public void drawBackgroundImage() {
+    if (imageCount < -bgImage.getWidth()) {
+        imageCount += bgImage.getWidth();
+    }
+    int temp = imageCount;
+    getBackground().drawImage(bgImage, temp, 0);
+    getBackground().drawImage(bgImage, temp + bgImage.getWidth(), 0);
+}
 }

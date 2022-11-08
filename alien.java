@@ -68,7 +68,7 @@ public class alien extends Actor
             Greenfoot.stop();
         }
         
-        getWorld().addObject(new Hero(1), 240, 200);
+        getWorld().addObject(new Hero(1), 65, 240);
         getWorld().removeObject(this);
         }
     }
