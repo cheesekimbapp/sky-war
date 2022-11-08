@@ -40,7 +40,7 @@ public class MyWorld extends World
         addObject(nyawa, 240,20);
         nyawa.setValue(5);
         addObject(skor, 60, 20);
-        
+      
         int timer=0;
         addObject(new p1(),20+Greenfoot.getRandomNumber(1000),10);
         if (timer == 100){
