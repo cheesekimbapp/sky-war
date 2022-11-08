@@ -42,9 +42,9 @@ public class MyWorld extends World
         addObject(skor, 60, 20);
       
         int timer=0;
-        addObject(new p1(),20+Greenfoot.getRandomNumber(1000),10);
+        addObject(new p2(),20+Greenfoot.getRandomNumber(1000),10);
         if (timer == 100){
-            
+        
         }
     }
     public void started(){

@@ -46,15 +46,17 @@ public class Hero extends Actor
         if (Greenfoot.isKeyDown("space")){
             if(timer > 10 && n == 1){
                 getWorld().addObject(new Peluru(), getX(), getY());
-                getWorld().addObject(new Peluru(), getX(), getY()+20);
-                getWorld().addObject(new Peluru(), getX(), getY()-20);
                 Greenfoot.playSound("shoot.mp3");
                 timer=0;
                 
-            } else if (timer > 10 && n == 2){
+            } else if (timer > 8 && n == 2){
                 getWorld().addObject(new Peluru2(), getX(), getY());
-                getWorld().addObject(new Peluru2(), getX(), getY()+10);
-                getWorld().addObject(new Peluru2(), getX(), getY()-10);
+                Greenfoot.playSound("shoot.mp3");
+                timer=0;
+            } else if (timer > 7 && n == 3){
+                getWorld().addObject(new Peluru3(), getX(), getY());
+                getWorld().addObject(new Peluru3(), getX(), getY()+20);
+                getWorld().addObject(new Peluru3(), getX(), getY()-20);
                 Greenfoot.playSound("shoot.mp3");
                 timer=0;
             }

@@ -53,7 +53,12 @@ public class alien extends Actor
                 MyWorld.skor.add(1);
                 getWorld().removeObject(this);
             }
-        } else if(isTouching(Hero.class)) {
+        }else if(isTouching(Peluru3.class)) {
+            removeTouching(Peluru3.class);
+                mledos();
+                MyWorld.skor.add(1);
+                getWorld().removeObject(this);
+        }else if(isTouching(Hero.class)) {
             removeTouching(Hero.class);
             mledos();
             MyWorld.nyawa.add(-1);
