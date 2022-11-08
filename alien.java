@@ -39,17 +39,20 @@ public class alien extends Actor
     {
         if(isTouching(Peluru.class)) {
             removeTouching(Peluru.class);
-            speed--;
-            if(speed==0){
+            speed=speed-1;
+            if(speed<=0){
                 mledos();
                 MyWorld.skor.add(1);
                 getWorld().removeObject(this);
             }
         }else if(isTouching(Peluru2.class)) {
             removeTouching(Peluru2.class);
-            mledos();
-            MyWorld.skor.add(1);
-            getWorld().removeObject(this);
+            speed=speed-1;
+            if(speed<=0){
+                mledos();
+                MyWorld.skor.add(1);
+                getWorld().removeObject(this);
+            }
         } else if(isTouching(Hero.class)) {
             removeTouching(Hero.class);
             mledos();
