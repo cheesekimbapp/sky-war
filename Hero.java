@@ -44,20 +44,20 @@ public class Hero extends Actor
         
         timer++;
         if (Greenfoot.isKeyDown("space")){
-            if(timer > 10 && n == 1){
+            if(timer > 15 && n == 1){
                 getWorld().addObject(new Peluru(), getX(), getY());
                 Greenfoot.playSound("shoot.mp3");
                 timer=0;
                 
             } else if (timer > 8 && n == 2){
                 getWorld().addObject(new Peluru2(), getX(), getY());
-                Greenfoot.playSound("shoot.mp3");
+                Greenfoot.playSound("shoot2.mp3");
                 timer=0;
             } else if (timer > 7 && n == 3){
                 getWorld().addObject(new Peluru3(), getX(), getY());
                 getWorld().addObject(new Peluru3(), getX(), getY()+20);
                 getWorld().addObject(new Peluru3(), getX(), getY()-20);
-                Greenfoot.playSound("shoot.mp3");
+                Greenfoot.playSound("shoot3.mp3");
                 timer=0;
             }
         }
