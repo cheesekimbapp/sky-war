@@ -24,7 +24,6 @@ public class alien extends Actor
     {
         setImage("Alien"+i+".png");
         speed = i+1;
-        health = hp;
     }
    
     public void act()
@@ -33,28 +32,24 @@ public class alien extends Actor
         if (getX()<10){
             setLocation(640, 20+Greenfoot.getRandomNumber(440));
         }
-        checkHealth();
         meledak();
     }
     
-    public void checkHealth(){
-        if (health <= 0){
-            removeTouching(Peluru.class);
-            mledos();
-            MyWorld.skor.add(1);
-            getWorld().removeObject(this);
-        }
-    }
     void meledak()
     {
         if(isTouching(Peluru.class)) {
-            /*
             removeTouching(Peluru.class);
+            speed--;
+            if(speed==0){
+                mledos();
+                MyWorld.skor.add(1);
+                getWorld().removeObject(this);
+            }
+        }else if(isTouching(Peluru2.class)) {
+            removeTouching(Peluru2.class);
             mledos();
             MyWorld.skor.add(1);
             getWorld().removeObject(this);
-            */
-            health = health-1;
         } else if(isTouching(Hero.class)) {
             removeTouching(Hero.class);
             mledos();
@@ -65,7 +60,7 @@ public class alien extends Actor
             Greenfoot.stop();
         }
         
-        getWorld().addObject(new Hero(), 240, 200);
+        getWorld().addObject(new Hero(1), 240, 200);
         getWorld().removeObject(this);
         }
     }

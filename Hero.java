@@ -12,7 +12,7 @@ public class Hero extends Actor
      * Act - do whatever the Hero wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    private int n;
     
     public Hero(){
         setImage("plane_1.png");
@@ -20,6 +20,7 @@ public class Hero extends Actor
     
     public Hero(int i){
         setImage("plane_"+ i +".png");
+        n = i;
     }
     
     int timer=0;
@@ -43,11 +44,16 @@ public class Hero extends Actor
         
         timer++;
         if (Greenfoot.isKeyDown("space")){
-            if(timer > 10){
-            getWorld().addObject(new Peluru(), getX(), getY());
-            Greenfoot.playSound("shoot.mp3");
-            timer=0;
+            if(timer > 10 && n == 1){
+                getWorld().addObject(new Peluru(), getX(), getY());
+                Greenfoot.playSound("shoot.mp3");
+                timer=0;
+            } else if (timer > 10 && n == 2){
+                getWorld().addObject(new Peluru2(), getX(), getY());
+                Greenfoot.playSound("shoot.mp3");
+                timer=0;
             }
         }
     }
+    
 }
