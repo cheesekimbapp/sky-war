@@ -20,7 +20,7 @@ public class p2 extends Actor
         }
         
         if(isTouching(Hero.class)){
-            getWorld().addObject(new Hero(3), 240, 200);
+            getWorld().addObject(new Hero(3), 65, 240);
             removeTouching(Hero.class);
             getWorld().removeObject(this);
         }

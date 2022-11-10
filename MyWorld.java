@@ -40,30 +40,43 @@ public class MyWorld extends World
         addObject(nyawa, 240,20);
         nyawa.setValue(5);
         addObject(skor, 60, 20);
-      
-        int timer=0;
         addObject(new p2(),20+Greenfoot.getRandomNumber(1000),10);
-        if (timer == 100){
-        
-        }
+        runBossSpawnTimer();
     }
+    
     public void started(){
         suara.playLoop();
     }
+    
     private int imageCount = 0;
  
     private GreenfootImage bgImage = new GreenfootImage("bg15.png");
  
     public void act() {
-    imageCount -= 2; //(or any other value; small -> slow moving, big -> fast movement)
-    drawBackgroundImage();
-}
-    public void drawBackgroundImage() {
-    if (imageCount < -bgImage.getWidth()) {
-        imageCount += bgImage.getWidth();
+        imageCount -= 2; //(or any other value; small -> slow moving, big -> fast movement)
+        drawBackgroundImage();
+        
     }
-    int temp = imageCount;
-    getBackground().drawImage(bgImage, temp, 0);
-    getBackground().drawImage(bgImage, temp + bgImage.getWidth(), 0);
-}
+    
+    public void drawBackgroundImage() {
+        if (imageCount < -bgImage.getWidth()){
+            imageCount += bgImage.getWidth();
+        }
+        int temp = imageCount;
+        getBackground().drawImage(bgImage, temp, 0);
+        getBackground().drawImage(bgImage, temp + bgImage.getWidth(), 0);
+    }
+    
+    private int bossSpawnTimer;
+    
+    private void runBossSpawnTimer(){
+        bossSpawnTimer = (bossSpawnTimer+1)%20; // adjust '300' as desired
+        if (bossSpawnTimer == 0) spawnBoss();
+    }
+    
+    private void spawnBoss(){
+        bos bos = new bos();
+        addObject(bos,500,240);
+    }
+    
 }

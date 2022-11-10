@@ -35,14 +35,15 @@ public class Hero extends Actor
         } else if(Greenfoot.isKeyDown("down")){
             setLocation(getX(), getY()+5);
         }
+        
         if(Greenfoot.isKeyDown("left")){
             setLocation(getX()-5, getY());
         } else if(Greenfoot.isKeyDown("right")){
             setLocation(getX()+5, getY());
         }
         
-        
         timer++;
+        
         if (Greenfoot.isKeyDown("space")){
             if(timer > 15 && n == 1){
                 getWorld().addObject(new Peluru(), getX(), getY());
