@@ -67,10 +67,10 @@ public class MyWorld extends World
         getBackground().drawImage(bgImage, temp + bgImage.getWidth(), 0);
     }
     
-    private int bossSpawnTimer;
+    private int bossSpawnTimer = 0;
     
     private void runBossSpawnTimer(){
-        bossSpawnTimer = (bossSpawnTimer+1)%20; // adjust '300' as desired
+        // bossSpawnTimer = (bossSpawnTimer+1)%20; // adjust '300' as desired
         if (bossSpawnTimer == 0) spawnBoss();
     }
     
